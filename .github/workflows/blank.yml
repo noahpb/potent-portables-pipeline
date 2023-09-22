@@ -31,6 +31,6 @@ jobs:
       - name: Run a multi-line script
         run: |
              mkdir -p $toolsPath
-             go install github.com/magefile/mage@latest && mage -h >/dev/null 2>&1 || echo 'Failed to install mage'
+             go install github.com/magefile/mage@latest && which mage && mage -h >/dev/null 2>&1 || echo 'Failed to install mage'
              wget -q https://github.com/defenseunicorns/zarf/releases/download/v0.29.2/zarf_v0.29.2_Linux_amd64 && chmod +x ./zarf_v0.29.2_Linux_amd64 && mv ./zarf_v0.29.2_Linux_amd64 $toolsPath/zarf && zarf -h >/dev/null 2>&1 || echo 'Failed to install zarf'
              echo 'Install completed.'
