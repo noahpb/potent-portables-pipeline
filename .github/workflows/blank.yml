@@ -31,10 +31,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-             export GOPATH=./bin/go
+             export GOPATH=$(pwd)/.bin/go
              export PATH=$PATH:$GOPATH
              mkdir -p $toolsPath
-             mkdir ./bin
+             mkdir -p $(pwd)/.bin/go
              go install github.com/magefile/mage@latest
              mage -h 
 
