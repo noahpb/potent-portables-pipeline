@@ -39,7 +39,7 @@ jobs:
           # renovate: datasource=github-tags depName=defenseunicorns/zarf versioning=semver
           version: v0.29.2
       - name: Run a multi-line script
-        run: zarf version
+        run: zarf version; mage -h
       
       # - name: Create Zarf Package
       #   shell: bash
