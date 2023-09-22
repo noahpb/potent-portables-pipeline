@@ -38,15 +38,17 @@ jobs:
         with:
           # renovate: datasource=github-tags depName=defenseunicorns/zarf versioning=semver
           version: v0.29.2
-      - name: Run a multi-line script
+      - name: Run mage zarf version
         run: | 
               export GOPATH=$(pwd)/.bin/go
               export PATH=$PATH:$GOPATH
-              mage -l
-        #run: zarf version; export GOPATH=$(pwd)/.bin/go; ; mage -h
-      
-      # - name: Create Zarf Package
-      #   shell: bash
-      #   run: zarf package create --confirm
-      #   working-directory: ${{ inputs.working-dir }} // make ./app dir
+              export MAGEFILE_VERBOSE=1
+              mage -v build:zarfVersion
+              
+      - name: Run mage zarf build
+        run: | 
+              export GOPATH=$(pwd)/.bin/go
+              export PATH=$PATH:$GOPATH
+              export MAGEFILE_VERBOSE=1
+              mage -v build:zarfBuild
 
