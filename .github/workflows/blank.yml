@@ -31,8 +31,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-             export GOPATH=$(pwd)/.bin/go
-             export PATH=$PATH:$GOPATH
+             export GOBIN=$(pwd)/.bin/go
+             export PATH=$PATH:$GOBIN
              mkdir -p $toolsPath
              mkdir -p $(pwd)/.bin/go
              go install github.com/magefile/mage@latest
