@@ -31,5 +31,6 @@ jobs:
       - name: Run a multi-line script
         run: |
              mkdir -p $toolsPath
+             echo $GOPATH
              go install github.com/magefile/mage@latest && mage -h 
 
