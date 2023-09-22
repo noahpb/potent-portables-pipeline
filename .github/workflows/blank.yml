@@ -34,6 +34,7 @@ jobs:
              export PATH=$PATH:/go/bin
              mkdir -p $toolsPath        
              go install github.com/magefile/mage@latest
+             ls -ltra $(pwd)
              ls -lrta /go
              mage -h 
 
